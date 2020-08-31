@@ -2,6 +2,7 @@ package br.com.robertosantin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,8 +23,14 @@ public class VendasApplication {
 		SpringApplication.run(VendasApplication.class, args);
 	}
 	
-	@Autowired
-	@Qualifier("applicationName")
+	/*
+	 * @Autowired
+	 * 
+	 * @Qualifier("applicationName")
+	 * Usamos anotações, quando não usamos o application.properties
+	 * 
+	 */
+	@Value("${application.name}")
 	private String applicationName;
 	
 	@GetMapping("/hello")
